@@ -1,3 +1,17 @@
+<!-- Header Section -->
+<header class="header">
+    <div class="container">
+        <div class="header-content">
+            <div class="logo">
+                <img src="assets/images/logo.png" alt="Cospace Logo">
+            </div>
+            <div class="header-right">
+                <button class="login-button">Login</button>
+            </div>
+        </div>
+    </div>
+</header>
+
 <!-- Hero Section -->
 <section class="hero">
     <div class="container">
@@ -16,29 +30,24 @@
         <h2>Everything Your Team Needs</h2>
         <div class="feature-grid">
             <div class="feature-card">
-                <i class="fas fa-door-open"></i>
-                <h3>Meeting Room Booking</h3>
-                <p>Reserve meeting rooms in real-time, check availability, and avoid double-booking.</p>
+                <i class="fas fa-building"></i>
+                <h3>Room Booking</h3>
+                <p>Book meeting rooms, halls, game sections, gym areas and more - all in one place with real-time availability.</p>
             </div>
             <div class="feature-card">
                 <i class="fas fa-calendar-alt"></i>
                 <h3>Shared Calendar</h3>
-                <p>Stay in sync with your team's schedule — meetings, events, and important deadlines all in one place.</p>
+                <p>Stay in sync with tenets' schedule — booking requests, space reservations, and important deadlines all in one place.</p>
             </div>
             <div class="feature-card">
                 <i class="fas fa-bug"></i>
                 <h3>Issue Tracking System</h3>
                 <p>Report, assign, and monitor internal issues with a streamlined ticketing system.</p>
             </div>
-            <div class="feature-card">
-                <i class="fas fa-utensils"></i>
-                <h3>Canteen Menu Access</h3>
-                <p>View daily menus, dietary options, and upcoming specials — updated by the kitchen in real-time.</p>
-            </div>
-            <div class="feature-card">
-                <i class="fas fa-headset"></i>
-                <h3>Help Request & Support</h3>
-                <p>Submit support requests for IT, maintenance, or general help — and track their status.</p>
+            <div class="feature-card feature-more">
+                <i class="fas fa-plus-circle"></i>
+                <h3>And Much More</h3>
+                <p>Discover additional features like canteen menu access, help desk support, and comprehensive workspace management tools.</p>
             </div>
         </div>
     </div>
@@ -192,3 +201,8 @@
         </div>
     </div>
 </footer>
+
+<!-- Move to top -->
+<button (click)="topFunction()" id="moveToTop" class="move-to-top" title="Go to top">
+    <i class="fas fa-arrow-up"></i>
+</button>

@@ -9,4 +9,25 @@ import { Component } from '@angular/core';
 })
 export class LandingPageComponent {
 
+
+  // method to hide the button when in top screen
+  constructor() {
+    window.addEventListener('scroll', () => {
+      const scrollPosition = window.scrollY;
+      const button = document.getElementById('moveToTop');
+      if (button) {
+        if (scrollPosition > 20) {
+          button.style.display = 'block';
+        } else {
+          button.style.display = 'none';
+        }
+      }
+    });
+  }
+
+  // move to top button
+  topFunction() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
 }

@@ -1,0 +1,130 @@
+<div class="dashboard-container">
+    <!-- Header Section -->
+    <div class="dashboard-header">
+        <h1>Admin Dashboard</h1>
+        <!-- <div class="date-time">{{ currentDate | date:'medium' }}</div> -->
+    </div>
+
+    <!-- Metrics Grid -->
+    <div class="metrics-grid">
+        <!-- Total Users Card -->
+        <div class="metric-card">
+            <div class="metric-icon users-icon"></div>
+            <div class="metric-content">
+                <h3>Total Users</h3>
+                <p class="metric-value">2,459</p>
+                <p class="metric-trend positive">+12% this week</p>
+            </div>
+        </div>
+
+        <!-- Active Sessions Card -->
+        <div class="metric-card">
+            <div class="metric-icon sessions-icon"></div>
+            <div class="metric-content">
+                <h3>Active Sessions</h3>
+                <p class="metric-value">186</p>
+                <p class="metric-trend">Current</p>
+            </div>
+        </div>
+
+        <!-- Revenue Card -->
+        <div class="metric-card">
+            <div class="metric-icon revenue-icon"></div>
+            <div class="metric-content">
+                <h3>Revenue</h3>
+                <p class="metric-value">$24,589</p>
+                <p class="metric-trend positive">+8% this month</p>
+            </div>
+        </div>
+
+        <!-- System Status Card -->
+        <div class="metric-card">
+            <div class="metric-icon status-icon"></div>
+            <div class="metric-content">
+                <h3>System Status</h3>
+                <p class="metric-value">98.9%</p>
+                <p class="metric-trend">Uptime</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Charts Section -->
+    <div class="charts-section">
+        <div class="chart-container">
+            <h2>User Activity</h2>
+            <canvas id="userActivityChart"></canvas>
+        </div>
+        <div class="chart-container">
+            <h2>Revenue Trend</h2>
+            <canvas id="revenueTrendChart"></canvas>
+        </div>
+    </div>
+
+    <!-- Recent Activity -->
+    <div class="recent-activity">
+        <h2>Recent Activity</h2>
+        <div class="activity-list">
+            <div class="activity-item">
+                <span class="activity-time">10:45 AM</span>
+                <span class="activity-description">New user registration</span>
+                <span class="activity-status">Completed</span>
+            </div>
+            <div class="activity-item">
+                <span class="activity-time">09:30 AM</span>
+                <span class="activity-description">System backup</span>
+                <span class="activity-status">In Progress</span>
+            </div>
+            <div class="activity-item">
+                <span class="activity-time">08:15 AM</span>
+                <span class="activity-description">Payment processed</span>
+                <span class="activity-status">Completed</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Support Chat Division -->
+    <div class="support-chat-div">
+        <h3>Support Chat</h3>
+        <div class="chat-content">
+            <div class="message-list">
+                <div class="message">Hi! How can I help you today?</div>
+                <div class="message">I'm having trouble accessing my account.</div>
+                <div class="message">No worries, I can help you with that!</div>
+            </div>
+            <div class="chat-input-area">
+                <input type="text" placeholder="Type a message...">
+                <button>Send</button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Help Chat Window -->
+    <!-- <div class="help-chat-window">
+        <div class="chat-header">
+            <h3>Help Chat</h3>
+            <button class="minimize-btn">−</button>
+        </div>
+        <div class="chat-messages">
+            <div class="message support">
+                <span class="avatar">S</span>
+                <div class="message-content">
+                    <p>Hello! How can I help you today?</p>
+                    <small class="timestamp">10:00 AM</small>
+                </div>
+            </div>
+            <div class="message user">
+                <div class="message-content">
+                    <p>I need help with dashboard settings.</p>
+                    <small class="timestamp">10:01 AM</small>
+                </div>
+            </div>
+        </div>
+        <div class="chat-input">
+            <input type="text" placeholder="Type your message...">
+            <button class="send-btn">Send</button>
+        </div>
+    </div> -->
+
+</div>
+

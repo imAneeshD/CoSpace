@@ -1,0 +1,15 @@
+<!-- admin.component.html -->
+
+<div class="sidebar" [ngClass]="{'d-none': !isMenuOpen}">
+    <app-sidebar></app-sidebar>
+</div>
+
+<div class="btn-holder">
+    <button id="close-menu" class="sidebar-close" (click)="isMenuOpen = !isMenuOpen">
+        <i class="fas" [ngClass]="{'fa-bars': !isMenuOpen, 'fa-times': isMenuOpen}"></i>
+    </button>
+</div>
+
+<div class="main-content">
+    <router-outlet></router-outlet>
+</div>

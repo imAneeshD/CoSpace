@@ -1,0 +1,49 @@
+:host {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.sidebar {
+    width: 280px;
+    flex-shrink: 0;
+    
+    &.d-none {
+        display: none;
+    }
+}
+
+.main-content {
+    flex: 1;
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+}
+
+//menu btn
+.btn-holder {
+    position: fixed;
+    top: 20px;
+    left: 280px; // default position when sidebar is visible
+    z-index: 1000;
+    transition: left 0.3s ease; // smooth transition for position change
+
+    // when sidebar is hidden (has d-none class)
+    .sidebar.d-none ~ & {
+        left: 20px; // move to the left when sidebar is hidden
+    }
+
+    .sidebar-close {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 8px;
+        font-size: 32px;
+        color: #333;
+        transition: transform 0.3s ease;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+}

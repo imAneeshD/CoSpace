@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-landing-page',
@@ -7,11 +8,11 @@ import { Component } from '@angular/core';
   templateUrl: './landing-page.component.html',
   styleUrl: './landing-page.component.scss'
 })
+
 export class LandingPageComponent {
 
-
   // method to hide the button when in top screen
-  constructor() {
+  constructor(private router: Router) {
     window.addEventListener('scroll', () => {
       const scrollPosition = window.scrollY;
       const button = document.getElementById('moveToTop');
@@ -23,6 +24,11 @@ export class LandingPageComponent {
         }
       }
     });
+  }
+
+
+  route(path: string) {
+    this.router.navigate([path]);
   }
 
   // move to top button

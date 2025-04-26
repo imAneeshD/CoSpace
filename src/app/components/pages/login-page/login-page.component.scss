@@ -1,0 +1,150 @@
+// Variables
+$primary-light: #f0f7ff; // Light blue background
+$primary-dark: #1a2b4e; // Dark blue text
+$accent: #ff7842; // Orange accent
+$gray-100: #f8f9fa;
+$gray-200: #e9ecef;
+$gray-600: #6c757d;
+$gray-800: #343a40;
+
+:host {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: $primary-light;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 450px;
+    padding: 20px;
+
+    .login-card {
+        background: $gray-100;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+
+        .card-content {
+            padding: 2.5rem;
+
+            .header-section {
+                text-align: center;
+                margin-bottom: 2rem;
+
+                .title {
+                    color: $primary-dark;
+                    font-size: 1.75rem;
+                    margin-bottom: 0.5rem;
+                }
+
+                .subtitle {
+                    color: $gray-600;
+                    font-size: 0.875rem;
+                }
+            }
+
+            .input-group {
+                position: relative;
+                margin-bottom: 1.5rem;
+
+                .input-field {
+                    width: 100%;
+                    padding: 0.75rem 1rem;
+                    border: 1px solid $gray-200;
+                    border-radius: 6px;
+                    background: $gray-100;
+                    color: $gray-800;
+                    font-size: 0.875rem;
+                    transition: border-color 0.3s ease;
+
+                    &:focus {
+                        outline: none;
+                        border-color: $accent;
+                    }
+
+                    &:focus + label,
+                    &:not(:placeholder-shown) + label {
+                        transform: translateY(-20px);
+                        font-size: 0.75rem;
+                        color: $accent;
+                    }
+                }
+
+                label {
+                    position: absolute;
+                    left: 1rem;
+                    top: 0.75rem;
+                    color: $gray-600;
+                    transition: all 0.3s ease;
+                    pointer-events: none;
+                }
+            }
+
+            .options-row {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 1.5rem;
+
+                .remember-section {
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+
+                    label {
+                        color: $gray-600;
+                        font-size: 0.875rem;
+                    }
+                }
+
+                .forgot-link {
+                    color: $accent;
+                    text-decoration: none;
+                    font-size: 0.875rem;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+
+            .submit-button {
+                width: 100%;
+                padding: 0.75rem;
+                background: $accent;
+                color: $gray-100;
+                border: none;
+                border-radius: 6px;
+                font-size: 1rem;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+
+                &:hover {
+                    background: darken($accent, 10%);
+                }
+            }
+
+            .signup-section {
+                margin-top: 1.5rem;
+                text-align: center;
+                
+                span {
+                    color: $gray-600;
+                    font-size: 0.875rem;
+                }
+
+                .signup-link {
+                    color: $accent;
+                    text-decoration: none;
+                    margin-left: 0.5rem;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+    }
+}

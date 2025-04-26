@@ -458,20 +458,14 @@ footer {
         }
     }
 
-    .footer-brand {
-        .footer-logo {
-            max-width: 180px;
-            margin-bottom: 1.5rem;
-        }
-
-        p {
-            color: $gray-200;
-            margin-bottom: 2rem;
-            line-height: 1.8;
-        }
-    }
 
     .footer-column {
+
+        img{
+            width: 100px;
+            margin-bottom: 1rem;
+        }
+
         h4 {
             font-size: 1.2rem;
             font-weight: 600;

@@ -1,127 +1,145 @@
-$primary-light: #f0f7ff; // Light blue background
-$primary-dark: #1a2b4e; // Dark blue text
-$accent: #ff7842; // Orange accent
+$primary-light: #f0f7ff;
+$primary-dark: #1a2b4e;
+$accent: #ff7842;
 $gray-100: #f8f9fa;
 $gray-200: #e9ecef;
 $gray-600: #6c757d;
 $gray-800: #343a40;
 
-
 .dashboard-container {
-    padding: 2rem;
-    padding-top: 5rem;
+    padding: 1rem; // Reduced padding for mobile
+    padding-top: 3rem;
     background-color: $primary-light;
     min-height: 100vh;
 
     .dashboard-header {
         display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 2rem;
+        flex-direction: column; // Stack elements on mobile
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+
+        @media (min-width: 576px) {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
 
         h1 {
             color: $primary-dark;
-            font-size: 2rem;
+            font-size: 1.5rem; // Smaller font for mobile
             margin: 0;
+
+            @media (min-width: 576px) {
+                font-size: 2rem;
+            }
         }
 
         .date-time {
             color: $gray-600;
-            font-size: 1rem;
+            font-size: 0.9rem;
+
+            @media (min-width: 576px) {
+                font-size: 1rem;
+            }
         }
     }
 
-
-
     .metrics-grid {
         display: grid;
-        grid-template-columns: repeat(2, 1fr); // Default 2 columns for smaller screens
-        gap: 1.5rem;
-        margin-bottom: 2rem;
+        grid-template-columns: 1fr; // Single column for mobile
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+
+        @media (min-width: 576px) {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
 
         @media (min-width: 1200px) {
-            // For larger screens
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         }
 
         .metric-card {
             background: white;
-            border-radius: 12px;
-            padding: 1.5rem;
+            border-radius: 8px;
+            padding: 1rem;
             display: flex;
             align-items: flex-start;
             box-shadow: 0 2px 8px rgba($primary-dark, 0.1);
             transition: transform 0.2s ease;
+
+            @media (min-width: 576px) {
+                padding: 1.5rem;
+                border-radius: 12px;
+            }
 
             &:hover {
                 transform: translateY(-5px);
             }
 
             .metric-icon {
-                width: 48px;
-                height: 48px;
+                width: 40px; // Smaller for mobile
+                height: 40px;
                 border-radius: 8px;
-                margin-right: 1rem;
+                margin-right: 0.8rem;
                 background-color: $primary-light;
                 display: flex;
                 align-items: center;
                 justify-content: center;
 
+                @media (min-width: 576px) {
+                    width: 48px;
+                    height: 48px;
+                    margin-right: 1rem;
+                }
+
                 i {
-                    font-size: 1.5rem;
-                }
+                    font-size: 1.2rem;
 
-                &.users-icon {
-                    background-color: rgba($accent, 0.1);
-
-                    i {
-                        color: $accent;
+                    @media (min-width: 576px) {
+                        font-size: 1.5rem;
                     }
                 }
 
-                &.sessions-icon {
-                    background-color: rgba($primary-dark, 0.1);
-
-                    i {
-                        color: $primary-dark;
-                    }
-                }
-
-                &.revenue-icon {
-                    background-color: rgba($accent, 0.1);
-
-                    i {
-                        color: $accent;
-                    }
-                }
-
-                &.status-icon {
-                    background-color: rgba($primary-dark, 0.1);
-
-                    i {
-                        color: $primary-dark;
-                    }
-                }
+                // Icon variants remain the same
+                &.users-icon { background-color: rgba($accent, 0.1); i { color: $accent; } }
+                &.sessions-icon { background-color: rgba($primary-dark, 0.1); i { color: $primary-dark; } }
+                &.revenue-icon { background-color: rgba($accent, 0.1); i { color: $accent; } }
+                &.status-icon { background-color: rgba($primary-dark, 0.1); i { color: $primary-dark; } }
             }
 
             .metric-content {
                 h3 {
                     color: $gray-600;
-                    font-size: 0.9rem;
-                    margin: 0 0 0.5rem 0;
+                    font-size: 0.8rem;
+                    margin: 0 0 0.4rem 0;
+
+                    @media (min-width: 576px) {
+                        font-size: 0.9rem;
+                        margin: 0 0 0.5rem 0;
+                    }
                 }
 
                 .metric-value {
                     color: $primary-dark;
-                    font-size: 1.5rem;
+                    font-size: 1.2rem;
                     font-weight: bold;
                     margin: 0;
+
+                    @media (min-width: 576px) {
+                        font-size: 1.5rem;
+                    }
                 }
 
                 .metric-trend {
                     color: $gray-600;
-                    font-size: 0.8rem;
-                    margin: 0.5rem 0 0 0;
+                    font-size: 0.75rem;
+                    margin: 0.4rem 0 0 0;
+
+                    @media (min-width: 576px) {
+                        font-size: 0.8rem;
+                        margin: 0.5rem 0 0 0;
+                    }
 
                     &.positive {
                         color: #28a745;
@@ -133,24 +151,48 @@ $gray-800: #343a40;
 
     .charts-section {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-        gap: 1.5rem;
-        margin-bottom: 2rem;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+
+        @media (min-width: 576px) {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 992px) {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
 
         .chart-container {
             background: white;
-            border-radius: 12px;
-            padding: 1.5rem;
+            border-radius: 8px;
+            padding: 0.75rem;
             box-shadow: 0 2px 8px rgba($primary-dark, 0.1);
+
+            @media (min-width: 576px) {
+                border-radius: 12px;
+                padding: 1.5rem;
+            }
 
             h2 {
                 color: $primary-dark;
-                font-size: 1.2rem;
-                margin: 0 0 1rem 0;
+                font-size: 1rem;
+                margin: 0 0 0.8rem 0;
+
+                @media (min-width: 576px) {
+                    font-size: 1.2rem;
+                    margin: 0 0 1rem 0;
+                }
             }
 
             .chart-placeholder {
-                height: 300px;
+                height: 200px;
+
+                @media (min-width: 576px) {
+                    height: 300px;
+                }
+                
                 background-color: $gray-100;
                 border-radius: 8px;
             }
@@ -159,22 +201,39 @@ $gray-800: #343a40;
 
     .recent-activity {
         background: white;
-        border-radius: 12px;
-        padding: 1.5rem;
+        border-radius: 8px;
+        padding: 1rem;
         box-shadow: 0 2px 8px rgba($primary-dark, 0.1);
+
+        @media (min-width: 576px) {
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
 
         h2 {
             color: $primary-dark;
-            font-size: 1.2rem;
-            margin: 0 0 1rem 0;
+            font-size: 1rem;
+            margin: 0 0 0.8rem 0;
+
+            @media (min-width: 576px) {
+                font-size: 1.2rem;
+                margin: 0 0 1rem 0;
+            }
         }
 
         .activity-item {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem;
+            flex-direction: column;
+            gap: 0.5rem;
+            padding: 0.8rem;
             border-bottom: 1px solid $gray-200;
+
+            @media (min-width: 576px) {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                padding: 1rem;
+            }
 
             &:last-child {
                 border-bottom: none;
@@ -182,22 +241,39 @@ $gray-800: #343a40;
 
             .activity-time {
                 color: $gray-600;
-                font-size: 0.9rem;
-                min-width: 80px;
+                font-size: 0.8rem;
+                min-width: 70px;
+
+                @media (min-width: 576px) {
+                    font-size: 0.9rem;
+                    min-width: 80px;
+                }
             }
 
             .activity-description {
                 color: $primary-dark;
                 flex-grow: 1;
-                margin: 0 1rem;
+                font-size: 0.9rem;
+
+                @media (min-width: 576px) {
+                    margin: 0 1rem;
+                }
             }
 
             .activity-status {
-                font-size: 0.9rem;
-                padding: 0.25rem 0.75rem;
-                border-radius: 12px;
+                font-size: 0.8rem;
+                padding: 0.2rem 0.5rem;
+                border-radius: 8px;
                 background-color: $gray-200;
                 color: $gray-800;
+                align-self: flex-start;
+
+                @media (min-width: 576px) {
+                    font-size: 0.9rem;
+                    padding: 0.25rem 0.75rem;
+                    border-radius: 12px;
+                    align-self: center;
+                }
 
                 &:contains("Completed") {
                     background-color: rgba(#28a745, 0.1);
@@ -212,41 +288,69 @@ $gray-800: #343a40;
         }
     }
 
-
     .support-chat-div {
-        margin-top: 2rem;
+        background: white;
+        border-radius: 8px;
+        padding: 1rem;
+        box-shadow: 0 2px 8px rgba($primary-dark, 0.1);
+        margin-top: 1.5rem;
+        width: 300px;
+        height: 400px; // Increased height to accommodate content
         display: flex;
         flex-direction: column;
-        background: white;
-        border-radius: 12px;
-        box-shadow: 0 2px 8px rgba($primary-dark, 0.1);
-        padding: 1rem;
-        width: 100%;
-        max-width: 300px;
+
+        @media (min-width: 576px) {
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
 
         h3 {
             color: $primary-dark;
-            margin: 0 0 1rem 0;
             font-size: 1.2rem;
+            margin-bottom: 1rem;
+            flex-shrink: 0; // Prevent header from shrinking
         }
 
         .chat-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            height: 100%; // Take remaining height
+            
+
             .message-list {
-                height: 120px;
-                overflow-y: auto;
-                margin-bottom: 1rem;
+                display: flex;
+                flex-direction: column;
+                gap: 0.8rem;
+                flex: 1; // Take remaining space
+                overflow-y: auto; // Enable vertical scrolling
+                padding: 0.5rem;
+                scrollbar-width: thin;
+                scrollbar-color: $gray-600 $gray-200;
+
+                &::-webkit-scrollbar {
+                    width: 6px;
+                }
+
+                &::-webkit-scrollbar-track {
+                    background: $gray-200;
+                    border-radius: 3px;
+                }
+
+                &::-webkit-scrollbar-thumb {
+                    background-color: $gray-600;
+                    border-radius: 3px;
+                }
 
                 .message {
-                    background-color: $gray-100;
                     padding: 0.8rem;
                     border-radius: 8px;
-                    margin-bottom: 0.5rem;
-                    color: $primary-dark;
-                    font-size: 0.9rem;
+                    background-color: $gray-100;
+                    max-width: 80%;
 
                     &:nth-child(even) {
                         background-color: $primary-light;
-                        margin-left: 1rem;
+                        align-self: flex-end;
                     }
                 }
             }
@@ -254,12 +358,13 @@ $gray-800: #343a40;
             .chat-input-area {
                 display: flex;
                 gap: 0.5rem;
+                flex-shrink: 0; // Prevent input area from shrinking
 
                 input {
                     flex: 1;
-                    padding: 0.5rem;
+                    padding: 0.8rem;
                     border: 1px solid $gray-200;
-                    border-radius: 4px;
+                    border-radius: 8px;
                     outline: none;
 
                     &:focus {
@@ -268,12 +373,13 @@ $gray-800: #343a40;
                 }
 
                 button {
+                    padding: 0.8rem 1.5rem;
                     background-color: $accent;
                     color: white;
                     border: none;
-                    padding: 0.5rem 1rem;
-                    border-radius: 4px;
+                    border-radius: 8px;
                     cursor: pointer;
+                    transition: background-color 0.2s;
 
                     &:hover {
                         background-color: darken($accent, 10%);
@@ -282,119 +388,4 @@ $gray-800: #343a40;
             }
         }
     }
-
-
-    .help-chat-window {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        width: 300px;
-        background: white;
-        border-radius: 12px;
-        box-shadow: 0 2px 8px rgba($primary-dark, 0.1);
-        overflow: hidden;
-
-        .chat-header {
-            background-color: $primary-dark;
-            color: white;
-            padding: 0.8rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-
-            h3 {
-                margin: 0;
-                font-size: 1rem;
-            }
-
-            .minimize-btn {
-                background: none;
-                border: none;
-                color: white;
-                cursor: pointer;
-            }
-        }
-
-        .chat-messages {
-            height: 300px;
-            overflow-y: auto;
-            padding: 1rem;
-
-            .message {
-                display: flex;
-                margin-bottom: 1rem;
-
-                .avatar {
-                    background-color: $accent;
-                    color: white;
-                    width: 30px;
-                    height: 30px;
-                    border-radius: 50%;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    margin-right: 0.5rem;
-                }
-
-                .message-content {
-                    background-color: $gray-100;
-                    padding: 0.8rem;
-                    border-radius: 8px;
-                    max-width: 80%;
-
-                    p {
-                        margin: 0;
-                        color: $primary-dark;
-                    }
-
-                    .timestamp {
-                        color: $gray-600;
-                        font-size: 0.75rem;
-                    }
-                }
-
-                &.user {
-                    flex-direction: row-reverse;
-
-                    .message-content {
-                        background-color: $primary-light;
-                        margin-right: 0;
-                    }
-                }
-            }
-        }
-
-        .chat-input {
-            padding: 1rem;
-            border-top: 1px solid $gray-200;
-            display: flex;
-            gap: 0.5rem;
-
-            input {
-                flex: 1;
-                padding: 0.5rem;
-                border: 1px solid $gray-200;
-                border-radius: 4px;
-                outline: none;
-
-                &:focus {
-                    border-color: $accent;
-                }
-            }
-
-            .send-btn {
-                background-color: $accent;
-                color: white;
-                border: none;
-                padding: 0.5rem 1rem;
-                border-radius: 4px;
-                cursor: pointer;
-
-                &:hover {
-                    background-color: darken($accent, 10%);
-                }
-            }
-        }
-    }
-
 }

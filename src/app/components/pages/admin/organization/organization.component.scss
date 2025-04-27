@@ -6,6 +6,7 @@ $gray-100: #f8f9fa;
 $gray-200: #e9ecef;
 $gray-600: #6c757d;
 $gray-800: #343a40;
+
 .organization-container {
     background-color: $primary-light;
     padding: 2rem;
@@ -15,7 +16,7 @@ $gray-800: #343a40;
         background-color: white;
         padding: 1.5rem;
         border-radius: 8px;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
         h1 {
             color: $primary-dark;
@@ -33,7 +34,7 @@ $gray-800: #343a40;
                 padding: 0.5rem 1rem;
                 border: none;
                 border-radius: 4px;
-                
+
                 &:hover {
                     background-color: darken($accent, 10%);
                 }
@@ -52,6 +53,29 @@ $gray-800: #343a40;
     .org-content {
         margin-top: 2rem;
 
+        .org-list {
+            overflow-x: scroll;
+
+            &::-webkit-scrollbar {
+            height: 8px;
+            width: 8px;
+            }
+
+            &::-webkit-scrollbar-track {
+            background: $gray-200;
+            border-radius: 4px;
+            }
+
+            &::-webkit-scrollbar-thumb {
+            background: $gray-600;
+            border-radius: 4px;
+
+            &:hover {
+                background: $gray-800;
+            }
+            }
+        }
+
         .org-table {
             width: 100%;
             border-collapse: collapse;
@@ -59,7 +83,8 @@ $gray-800: #343a40;
             border-radius: 8px;
             overflow: hidden;
 
-            th, td {
+            th,
+            td {
                 padding: 1rem;
                 text-align: left;
                 border-bottom: 1px solid $gray-200;
@@ -90,26 +115,59 @@ $gray-800: #343a40;
 
         .org-stats {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
             margin: 2rem 0;
 
             .stat-card {
-                background-color: white;
-                padding: 1.5rem;
-                border-radius: 8px;
-                text-align: center;
-                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                background: linear-gradient(135deg, white 0%, #f8f9fa 100%);
+                padding: 1.8rem;
+                border-radius: 16px;
+                position: relative;
+                overflow: hidden;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 4px;
+                    background: linear-gradient(90deg, $accent, lighten($accent, 20%));
+                }
+
+                &:hover {
+                    transform: translateY(-5px);
+                    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+                }
 
                 h3 {
                     color: $gray-600;
-                    margin-bottom: 0.5rem;
+                    font-size: 0.9rem;
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+                    margin-bottom: 1rem;
                 }
 
                 p {
                     color: $primary-dark;
-                    font-size: 1.5rem;
-                    font-weight: bold;
+                    font-size: 2rem;
+                    font-weight: 700;
+                    margin: 0;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 0.5rem;
+
+                    .trend {
+                        font-size: 0.9rem;
+                        padding: 0.2rem 0.5rem;
+                        border-radius: 12px;
+                        background-color: rgba($accent, 0.1);
+                        color: $accent;
+                    }
                 }
             }
         }
@@ -118,7 +176,7 @@ $gray-800: #343a40;
             background-color: white;
             padding: 2rem;
             border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
             &.hidden {
                 display: none;

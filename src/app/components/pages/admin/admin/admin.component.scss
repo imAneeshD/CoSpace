@@ -48,7 +48,7 @@ app-topbar {
 //menu btn
 .btn-holder {
     position: fixed;
-    top: 10px;
+    top: 5px;
     left: 280px; // default position when sidebar is visible
     z-index: 1000;
     transition: left 0.3s ease; // smooth transition for position change

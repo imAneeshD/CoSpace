@@ -11,8 +11,12 @@ import { Router } from '@angular/router';
 })
 
 export class LandingPageComponent {
-isMenuOpen = false;
 
+  // code for time and version
+  currentYear: number = new Date().getFullYear();
+  appVersion: string = '1.0.0';
+
+  isMenuOpen = false;
 
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;

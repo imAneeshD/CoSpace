@@ -1,5 +1,7 @@
 <!-- admin.component.html -->
-<app-topbar></app-topbar>
+<div class="topbar" id="topbar" [ngClass]="{'blur': shouldBlurContent()}">
+    <app-topbar></app-topbar>
+</div>
 <div class="sidebar" [ngClass]="{'d-none': !isMenuOpen}">
     <app-sidebar></app-sidebar>
 </div>
@@ -10,6 +12,6 @@
     </button>
 </div>
 
-<div class="main-content">
+<div class="main-content" id="main-content" [ngClass]="{'blur': shouldBlurContent()}">
     <router-outlet></router-outlet>
 </div>

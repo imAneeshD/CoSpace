@@ -23,10 +23,12 @@ export class AdminComponent implements OnInit {
   ngOnInit(): void {
   }
 
-
   private checkScreenSize() {
     this.isLargeScreen = window.innerWidth > 768;
     this.isMenuOpen = this.isLargeScreen;
-    console.log(this.isMenuOpen);
+  }
+
+  shouldBlurContent(): boolean {
+    return !this.isLargeScreen && this.isMenuOpen;
   }
 }

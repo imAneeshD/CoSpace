@@ -4,6 +4,31 @@
     height: 100%;
 }
 
+
+//top bar 
+app-topbar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 280px; // matches sidebar width
+    height: 60px;
+    z-index: 999;
+    background: transparent;
+    // box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: left 0.3s ease;
+
+    // when sidebar is hidden
+    .sidebar.d-none ~ & {
+        left: 0;
+    }
+}
+
+// adjust main content to account for topbar
+.main-content {
+    margin-top: 60px; // height of topbar
+}
+
+
 .sidebar {
     width: 280px;
     flex-shrink: 0;
@@ -23,7 +48,7 @@
 //menu btn
 .btn-holder {
     position: fixed;
-    top: 20px;
+    top: 10px;
     left: 280px; // default position when sidebar is visible
     z-index: 1000;
     transition: left 0.3s ease; // smooth transition for position change

@@ -6,7 +6,12 @@
                 <img src="../../../../assets/images/logo.png" alt="Cospace Logo">
             </div>
             <div class="header-right">
-                <button class="login-button" (click)="route('/login')">Login</button>
+                <nav class="menu-nav">
+                    <a href="#features">Features</a>
+                    <a href="#screenshots">Screenshots</a>
+                    <a href="#testimonials">Testimonials</a>
+                    <a href="#pricing">Pricing</a>
+                </nav>
             </div>
         </div>
     </div>
@@ -18,14 +23,14 @@
         <h1>Streamline Your Workplace with Cospace</h1>
         <p class="tagline">Book rooms, track issues, view canteen menus, and stay in sync — all in one smart platform built for modern workplaces.</p>
         <div class="cta-buttons">
-            <button class="cta-button primary">Get Started for Free</button>
-            <button class="cta-button secondary">Book a Demo</button>
+            <a href="mailto:codeandpods@gmail.com" class="cta-button primary">Get Started for Free</a>
+            <a href="mailto:codeandpods@gmail.com" class="cta-button secondary">Book a Demo</a>
         </div>
     </div>
 </section>
 
 <!-- Features Section -->
-<section class="features">
+<section id="features" class="features">
     <div class="container">
         <h2>Everything Your Team Needs</h2>
         <div class="feature-grid">
@@ -54,7 +59,7 @@
 </section>
 
 <!-- App Screenshots -->
-<section class="screenshots">
+<section id="screenshots" class="screenshots">
     <div class="container">
         <h2>See Cospace in Action</h2>
         <div class="screenshot-carousel">
@@ -66,7 +71,7 @@
 </section>
 
 <!-- Testimonials -->
-<section class="testimonials">
+<section id="testimonials" class="testimonials">
     <div class="container">
         <h2>Loved by Teams Worldwide</h2>
         <div class="testimonial-grid">
@@ -93,8 +98,9 @@
         </div>
     </div>
 </section>
+
 <!-- Pricing -->
-<section class="pricing">
+<section id="pricing" class="pricing">
     <div class="container">
         <h2>Choose Your Plan</h2>
         <p class="pricing-subtitle">Start free and scale as you grow</p>
@@ -102,11 +108,10 @@
         <div class="pricing-grid">
             <!-- Starter Plan -->
             <div class="pricing-card">
-                <!-- <div class="card-badge">Up to 5 Tenants</div> -->
                 <div class="card-header">
                     <h3>Starter</h3>
                     <div class="price">
-                        <span class="amount">&#x20B9;999</span>
+                        <span class="amount">&#x20B9;2999</span>
                         <span class="period">/month</span>
                     </div>
                     <p class="description">Perfect for small teams up to 5 tenants</p>
@@ -119,7 +124,9 @@
                     <li><i class="fas fa-headset"></i>Helpdesk with SLA support</li>
                     <li><i class="fas fa-chart-line"></i>Usage insights dashboard</li>
                 </ul>
-                <button class="btn-pricing">Get Started</button>
+                <div class="button-container">
+                    <button class="btn-pricing">Get Started</button>
+                </div>
             </div>
 
             <!-- Professional Plan -->
@@ -128,7 +135,7 @@
                 <div class="card-header">
                     <h3>Professional</h3>
                     <div class="price">
-                        <span class="amount">&#x20B9;2999</span>
+                        <span class="amount">&#x20B9;4999</span>
                         <span class="period">/month</span>
                     </div>
                     <p class="description">Ideal for larger organizations with 10+ tenants</p>
@@ -141,27 +148,32 @@
                     <li><i class="fas fa-headset"></i>Helpdesk with SLA support</li>
                     <li><i class="fas fa-chart-line"></i>Usage insights dashboard</li>
                 </ul>
-                <button class="btn-pricing primary">Start Free Trial</button>
+                <div class="button-container">
+                    <button class="btn-pricing primary">Start Free Trial</button>
+                </div>
             </div>
 
-            <!-- Enterprise Plan -->
+            <!-- Premium Plan -->
             <div class="pricing-card">
-                <!-- <div class="card-badge">Enterprise</div> -->
                 <div class="card-header">
-                    <h3>Enterprise</h3>
+                    <h3>Premium</h3>
                     <div class="price">
-                        <span class="amount">Custom</span>
+                        <span class="amount">&#x20B9;8999</span>
+                        <span class="period">/month</span>
                     </div>
-                    <p class="description">For large organizations with custom needs</p>
+                    <p class="description">For growing organizations with advanced needs</p>
                 </div>
                 <ul class="features-list">
                     <li><i class="fas fa-check"></i>All Professional features +</li>
-                    <li><i class="fas fa-shield-alt"></i>Dedicated account manager</li>
-                    <li><i class="fas fa-lock"></i>Custom security & compliance options</li>
-                    <li><i class="fas fa-cogs"></i>API access and integrations</li>
-                    <li><i class="fas fa-headset"></i>24/7 premium support</li>
+                    <li><i class="fas fa-shield-alt"></i>Priority support</li>
+                    <li><i class="fas fa-database"></i>Custom API integration</li>
+                    <li><i class="fas fa-users"></i>Unlimited tenets</li>
+                    <li><i class="fas fa-headset"></i>24/7 support</li>
+                    <li><i class="fas fa-chart-bar"></i>Advanced analytics</li>
                 </ul>
-                <button class="btn-pricing">Contact Sales</button>
+                <div class="button-container">
+                    <button class="btn-pricing">Get Premium</button>
+                </div>
             </div>
         </div>
     </div>
@@ -190,9 +202,9 @@
             <div class="footer-column">
                 <h4>Follow Us</h4>
                 <div class="social-links">
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
-                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="https://x.com/cospace_app"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.linkedin.com/company/cospace-app"><i class="fab fa-linkedin"></i></a>
+                    <!-- <a href="#"><i class="fab fa-github"></i></a> -->
                 </div>
             </div>
         </div>

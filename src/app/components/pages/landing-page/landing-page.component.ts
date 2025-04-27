@@ -1,15 +1,22 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-landing-page',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './landing-page.component.html',
   styleUrl: './landing-page.component.scss'
 })
 
 export class LandingPageComponent {
+isMenuOpen = false;
+
+
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
 
   // method to hide the button when in top screen
   constructor(private router: Router) {

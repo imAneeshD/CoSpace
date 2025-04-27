@@ -3,6 +3,7 @@ import { LandingPageComponent } from './components/pages/landing-page/landing-pa
 import { LoginPageComponent } from './components/pages/login-page/login-page.component';
 import { DashboardComponent } from './components/pages/admin/dashboard/dashboard.component';
 import { AdminComponent } from './components/pages/admin/admin/admin.component';
+import { OrganizationComponent } from './components/pages/admin/organization/organization.component';
 
 export const routes: Routes = [
     {
@@ -23,6 +24,15 @@ export const routes: Routes = [
                 path: '',
                 component: DashboardComponent
             },
+            {
+                path: 'dashboard',
+                component: DashboardComponent
+            },
+            {
+                path: 'organization',
+                component: OrganizationComponent
+            }
+
             // Add more admin routes here as needed, for example:
             // {
             //     path: 'users',

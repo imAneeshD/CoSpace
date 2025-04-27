@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
@@ -9,10 +10,14 @@ import { Component } from '@angular/core';
   styleUrl: './sidebar.component.scss'
 })
 export class SidebarComponent {
+  constructor(private router: Router) { }
+
+  route(path: string) {
+    console.log('Navigating to:', path); // Debugging line
+    this.router.navigate([path]);
+  }
 
   isMenuOpen: boolean = true;
-
-  constructor() { }
 
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;

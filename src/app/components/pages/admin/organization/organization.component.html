@@ -1,0 +1,96 @@
+<div class="organization-container">
+    <header class="org-header">
+        <h1>Organization Management</h1>
+        <div class="actions-bar">
+            <button class="primary-btn">Add New Organization</button>
+            <input type="search" placeholder="Search organizations..." class="search-input">
+        </div>
+    </header>
+
+    <main class="org-content">
+       
+        <aside class="org-stats">
+            <div class="stat-card">
+                <h3>Total Organizations</h3>
+                <p>125</p>
+            </div>
+            <div class="stat-card">
+                <h3>Active Organizations</h3>
+                <p>98</p>
+            </div>
+            <div class="stat-card">
+                <h3>Total Members</h3>
+                <p>1,250</p>
+            </div>
+        </aside>
+
+        <section class="org-list">
+            <table class="org-table">
+                <thead>
+                    <tr>
+                        <th>Organization Name</th>
+                        <th>Industry</th>
+                        <th>Location</th>
+                        <th>Members</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>TechCorp Solutions</td>
+                        <td>Technology</td>
+                        <td>New York, USA</td>
+                        <td>250</td>
+                        <td>Active</td>
+                        <td>
+                            <button class="icon-btn edit">Edit</button>
+                            <button class="icon-btn delete">Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Global Innovations</td>
+                        <td>Research</td>
+                        <td>London, UK</td>
+                        <td>180</td>
+                        <td>Active</td>
+                        <td>
+                            <button class="icon-btn edit">Edit</button>
+                            <button class="icon-btn delete">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="org-form hidden">
+            <h2>Add/Edit Organization</h2>
+            <form class="organization-form">
+                <div class="form-row">
+                    <label for="orgName">Organization Name</label>
+                    <input type="text" id="orgName" name="orgName">
+                </div>
+                <div class="form-row">
+                    <label for="industry">Industry</label>
+                    <input type="text" id="industry" name="industry">
+                </div>
+                <div class="form-row">
+                    <label for="location">Location</label>
+                    <input type="text" id="location" name="location">
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="submit-btn">Save</button>
+                    <button type="button" class="cancel-btn">Cancel</button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <footer class="org-footer">
+        <div class="pagination">
+            <button class="page-btn">Previous</button>
+            <span class="page-info">Page 1 of 5</span>
+            <button class="page-btn">Next</button>
+        </div>
+    </footer>
+</div>

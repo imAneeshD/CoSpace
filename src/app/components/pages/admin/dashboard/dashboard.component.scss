@@ -408,8 +408,8 @@ $gray-800: #343a40;
         box-shadow: 0 2px 8px rgba($primary-dark, 0.1);
         display: flex;
         flex-direction: column;
-        height: 400px; // Fixed height for chat container
-        max-height: 400px; // Maximum height
+        height: 400px;
+        max-height: 400px;
 
         @media (min-width: 576px) {
             border-radius: 12px;
@@ -432,10 +432,10 @@ $gray-800: #343a40;
             .message-list {
                 display: flex;
                 flex-direction: column;
-                gap: 0.5rem;
+                gap: 0.8rem;
                 flex: 1;
                 overflow-y: auto;
-                max-height: 280px; // Fixed height for message area
+                max-height: 280px;
                 padding: 0.5rem;
                 scrollbar-width: thin;
                 scrollbar-color: $gray-600 $gray-200;
@@ -454,15 +454,47 @@ $gray-800: #343a40;
                 }
 
                 .message {
-                    padding: 0.5rem;
-                    border-radius: 6px;
-                    background-color: $gray-100;
+                    display: flex;
+                    flex-direction: column;
                     max-width: 80%;
-                    font-size: 0.9rem;
 
-                    &:nth-child(even) {
-                        background-color: $primary-light;
+                    .time {
+                        font-size: 0.75rem;
+                        color: $gray-600;
+                        margin-bottom: 2px;
+                    }
+
+                    .content {
+                        padding: 0.5rem 0.8rem;
+                        border-radius: 12px;
+                        font-size: 0.9rem;
+                    }
+
+                    &.support {
+                        align-self: flex-start;
+
+                        .time {
+                            margin-left: 0.8rem;
+                        }
+
+                        .content {
+                            background-color: $gray-100;
+                            border-top-left-radius: 4px;
+                        }
+                    }
+
+                    &.user {
                         align-self: flex-end;
+
+                        .time {
+                            align-self: flex-end;
+                            margin-right: 0.8rem;
+                        }
+
+                        .content {
+                            background-color: $primary-light;
+                            border-top-right-radius: 4px;
+                        }
                     }
                 }
             }
@@ -475,20 +507,24 @@ $gray-800: #343a40;
 
                 input {
                     flex: 1;
-                    padding: 0.5rem;
+                    padding: 0.8rem;
                     border: 1px solid $gray-200;
-                    border-radius: 6px;
+                    border-radius: 20px;
                     font-size: 0.9rem;
                     outline: none;
+
+                    &:focus {
+                        border-color: $accent;
+                    }
                 }
 
                 button {
-                    padding: 0.5rem 1rem;
+                    padding: 0.8rem 1.2rem;
                     font-size: 0.9rem;
                     background-color: $accent;
                     color: white;
                     border: none;
-                    border-radius: 6px;
+                    border-radius: 20px;
                     cursor: pointer;
                     transition: background-color 0.2s;
 

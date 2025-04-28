@@ -10,7 +10,15 @@ import { Router } from '@angular/router';
   styleUrl: './sidebar.component.scss'
 })
 export class SidebarComponent {
-  constructor(private router: Router) { }
+
+
+  isActiveRoute(route: string): boolean {    
+    return location.pathname.includes(route);
+  }
+
+  constructor(private router: Router) { 
+    console.log(location.pathname); // Debugging line
+  }
 
   route(path: string) {
     console.log('Navigating to:', path); // Debugging line

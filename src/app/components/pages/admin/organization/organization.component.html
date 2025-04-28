@@ -8,7 +8,6 @@
     </header>
 
     <main class="org-content">
-       
         <aside class="org-stats">
             <div class="stat-card">
                 <h3>Total Organizations</h3>
@@ -22,7 +21,38 @@
                 <h3>Total Members</h3>
                 <p>1,250</p>
             </div>
+            <div class="stat-card">
+                <h3>Monthly Growth</h3>
+                <p>15%</p>
+            </div>
+            <div class="stat-card">
+                <h3>Revenue</h3>
+                <p>$125K</p>
+            </div>
         </aside>
+
+        <section class="org-filters">
+            <h3>Filters</h3>
+            <div class="filter-group">
+                <select name="industryFilter">
+                    <option value="">Select Industry</option>
+                    <option value="tech">Technology</option>
+                    <option value="research">Research</option>
+                    <option value="healthcare">Healthcare</option>
+                </select>
+                <select name="statusFilter">
+                    <option value="">Select Status</option>
+                    <option value="active">Active</option>
+                    <option value="inactive">Inactive</option>
+                </select>
+                <select name="locationFilter">
+                    <option value="">Select Location</option>
+                    <option value="usa">USA</option>
+                    <option value="uk">UK</option>
+                    <option value="eu">EU</option>
+                </select>
+            </div>
+        </section>
 
         <section class="org-list">
             <table class="org-table">
@@ -59,30 +89,52 @@
                             <button class="icon-btn delete">Delete</button>
                         </td>
                     </tr>
+                    <tr>
+                        <td>HealthTech Solutions</td>
+                        <td>Healthcare</td>
+                        <td>Berlin, DE</td>
+                        <td>150</td>
+                        <td>Active</td>
+                        <td>
+                            <button class="icon-btn edit">Edit</button>
+                            <button class="icon-btn delete">Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>EduTech Systems</td>
+                        <td>Education</td>
+                        <td>Toronto, CA</td>
+                        <td>120</td>
+                        <td>Active</td>
+                        <td>
+                            <button class="icon-btn edit">Edit</button>
+                            <button class="icon-btn delete">Delete</button>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
         </section>
 
+        <section class="org-analytics">
+            <h3>Analytics Overview</h3>
+            <div class="analytics-cards">
+                <div class="analytics-card">
+                    <h4>Member Growth</h4>
+                    <p>+25% this month</p>
+                </div>
+                <div class="analytics-card">
+                    <h4>Active Projects</h4>
+                    <p>47 ongoing</p>
+                </div>
+                <div class="analytics-card">
+                    <h4>Resource Usage</h4>
+                    <p>78% utilized</p>
+                </div>
+            </div>
+        </section>
+
         <section class="org-form hidden">
-            <h2>Add/Edit Organization</h2>
-            <form class="organization-form">
-                <div class="form-row">
-                    <label for="orgName">Organization Name</label>
-                    <input type="text" id="orgName" name="orgName">
-                </div>
-                <div class="form-row">
-                    <label for="industry">Industry</label>
-                    <input type="text" id="industry" name="industry">
-                </div>
-                <div class="form-row">
-                    <label for="location">Location</label>
-                    <input type="text" id="location" name="location">
-                </div>
-                <div class="form-actions">
-                    <button type="submit" class="submit-btn">Save</button>
-                    <button type="button" class="cancel-btn">Cancel</button>
-                </div>
-            </form>
+            <!-- Form content remains the same -->
         </section>
     </main>
 

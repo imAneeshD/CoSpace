@@ -1,0 +1,242 @@
+// Variables
+$primary-light: #f0f7ff;
+$primary-dark: #1a2b4e;
+$accent: #ff7842;
+$gray-100: #f8f9fa;
+$gray-200: #e9ecef;
+$gray-600: #6c757d;
+$gray-800: #343a40;
+
+:host {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: $primary-light;
+}
+
+.dashboard-container {
+    padding: 2rem;
+    padding-top: 4rem;
+
+    .dashboard-header {
+        .search-input {
+            width: 200px !important;
+        }
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2rem;
+
+        h1 {
+            color: $primary-dark;
+            font-size: 2rem;
+            margin: 0;
+        }
+
+        .actions-bar {
+            .search-input {
+                padding: 0.75rem 1.5rem;
+                border-radius: 25px;
+                border: 2px solid $gray-200;
+                background: white;
+                width: 300px;
+                font-size: 1rem;
+                color: $gray-800;
+                transition: all 0.2s;
+
+                &:focus {
+                    outline: none;
+                    border-color: $accent;
+                    box-shadow: 0 0 0 2px rgba($accent, 0.1);
+                }
+
+                &::placeholder {
+                    color: $gray-600;
+                }
+            }
+        }
+    }
+
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+
+        .stat-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            transition: transform 0.2s;
+
+            &:hover {
+                transform: translateY(-5px);
+            }
+
+            .stat-icon {
+                background: rgba($accent, 0.1);
+                padding: 1rem;
+                border-radius: 50%;
+                margin-right: 1rem;
+
+                i {
+                    color: $accent;
+                    font-size: 1.5rem;
+                }
+            }
+
+            .stat-content {
+                h3 {
+                    color: $gray-600;
+                    font-size: 0.9rem;
+                    margin-bottom: 0.5rem;
+                }
+
+                h2 {
+                    color: $primary-dark;
+                    font-size: 1.8rem;
+                    margin-bottom: 0.5rem;
+                }
+
+                .trend {
+                    color: $gray-600;
+                    font-size: 0.8rem;
+                    margin: 0;
+                }
+            }
+        }
+    }
+
+    .requests-container {
+        h2 {
+            color: $primary-dark;
+            margin-bottom: 1.5rem;
+        }
+
+        .requests-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+
+            .request-card {
+                background: white;
+                border-radius: 12px;
+                padding: 1.5rem;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+                .request-header {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-bottom: 1.5rem;
+                    padding-bottom: 1rem;
+                    border-bottom: 1px solid $gray-200;
+
+                    .request-id {
+                        color: $gray-600;
+                        font-weight: 600;
+                    }
+
+                    .status-dropdown select {
+                        padding: 0.5rem 1rem;
+                        border-radius: 20px;
+                        border: 2px solid $gray-200;
+                        background: $gray-100;
+                        color: $primary-dark;
+                        font-weight: 500;
+                        cursor: pointer;
+                        transition: all 0.2s;
+
+                        &:hover {
+                            border-color: $accent;
+                        }
+
+                        &:focus {
+                            outline: none;
+                            border-color: $accent;
+                            box-shadow: 0 0 0 2px rgba($accent, 0.1);
+                        }
+
+                        option {
+                            padding: 0.5rem;
+                        }
+                    }
+                }
+
+                .request-body {
+                    padding: 0.5rem 0;
+
+                    .user-info {
+                        display: flex;
+                        align-items: center;
+                        gap: 0.5rem;
+                        color: $gray-600;
+                        margin-bottom: 1rem;
+
+                        i {
+                            color: $primary-dark;
+                            font-size: 1.2rem;
+                        }
+                    }
+
+                    .request-subject {
+                        color: $primary-dark;
+                        margin: 0.5rem 0 1rem 0;
+                        font-size: 1.1rem;
+                        font-weight: 600;
+                    }
+
+                    .request-date {
+                        display: flex;
+                        align-items: center;
+                        gap: 0.5rem;
+                        color: $gray-600;
+                        font-size: 0.9rem;
+                        margin-bottom: 1rem;
+                    }
+                }
+
+                .request-actions {
+                    margin-top: 1rem;
+                    display: flex;
+                    gap: 0.5rem;
+                    padding-top: 1rem;
+                    border-top: 1px solid $gray-200;
+
+                    .action-btn {
+                        background: none;
+                        border: none;
+                        padding: 0.5rem 1rem;
+                        cursor: pointer;
+                        border-radius: 4px;
+                        display: flex;
+                        align-items: center;
+                        gap: 0.5rem;
+                        transition: all 0.2s;
+
+                        &.view {
+                            color: $accent;
+                            &:hover {
+                                background: rgba($accent, 0.1);
+                            }
+                        }
+
+                        &.edit {
+                            color: $primary-dark;
+                            &:hover {
+                                background: rgba($primary-dark, 0.1);
+                            }
+                        }
+
+                        i {
+                            font-size: 0.9rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

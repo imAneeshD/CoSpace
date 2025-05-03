@@ -1,1 +1,118 @@
-<p>admin-settings works!</p>
+<div class="settings-container">
+    <!-- Header Section -->
+    <div class="settings-header">
+        <h1>CoSpace Settings</h1>
+        <p>Manage your workspace preferences and configurations</p>
+    </div>
+
+    <!-- Main Settings Content -->
+    <mat-tab-group animationDuration="200ms" class="settings-tabs">
+        <!-- General Settings Tab -->
+        <mat-tab label="General">
+            <div class="tab-content">
+                <div class="settings-section">
+                    <h2>Workspace Preferences</h2>
+                    
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Workspace Name</mat-label>
+                        <input matInput [(ngModel)]="settings.workspaceName" placeholder="Enter workspace name">
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Default Time Zone</mat-label>
+                        <mat-select [(ngModel)]="settings.timezone">
+                            <mat-option *ngFor="let zone of timezones" [value]="zone.value">
+                                {{zone.label}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <mat-slide-toggle [(ngModel)]="settings.notifications" class="setting-toggle">
+                        Enable Notifications
+                    </mat-slide-toggle>
+                </div>
+            </div>
+        </mat-tab>
+
+        <!-- Appearance Tab -->
+        <mat-tab label="Appearance">
+            <div class="tab-content">
+                <div class="settings-section">
+                    <h2>Theme Settings</h2>
+                    
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Theme Mode</mat-label>
+                        <mat-select [(ngModel)]="settings.theme">
+                            <mat-option value="light">Light Mode</mat-option>
+                            <mat-option value="dark">Dark Mode</mat-option>
+                            <mat-option value="system">System Default</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <div class="color-picker-section">
+                        <h3>Accent Color</h3>
+                        <div class="color-options">
+                            <div *ngFor="let color of themeColors" 
+                                     [style.backgroundColor]="color"
+                                     [class.selected]="settings.accentColor === color"
+                                     (click)="settings.accentColor = color"
+                                     class="color-option">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </mat-tab>
+
+        <!-- Privacy & Security Tab -->
+        <mat-tab label="Privacy & Security">
+            <div class="tab-content">
+                <div class="settings-section">
+                    <h2>Privacy Settings</h2>
+                    
+                    <mat-slide-toggle [(ngModel)]="settings.activityTracking" class="setting-toggle">
+                        Activity Tracking
+                    </mat-slide-toggle>
+
+                    <mat-slide-toggle [(ngModel)]="settings.dataCollection" class="setting-toggle">
+                        Data Collection
+                    </mat-slide-toggle>
+
+                    <h2 class="mt-4">Security</h2>
+                    <button mat-raised-button color="primary" (click)="changePassword()">
+                        Change Password
+                    </button>
+
+                    <button mat-raised-button color="accent" class="ml-3" (click)="enable2FA()">
+                        Enable Two-Factor Authentication
+                    </button>
+                </div>
+            </div>
+        </mat-tab>
+
+        <!-- Notifications Tab -->
+        <mat-tab label="Notifications">
+            <div class="tab-content">
+                <div class="settings-section">
+                    <h2>Notification Preferences</h2>
+                    
+                    <mat-list>
+                        <mat-list-item *ngFor="let notify of notificationSettings">
+                            <div class="notification-item">
+                                <span>{{notify.label}}</span>
+                                <mat-slide-toggle [(ngModel)]="notify.enabled">
+                                </mat-slide-toggle>
+                            </div>
+                        </mat-list-item>
+                    </mat-list>
+                </div>
+            </div>
+        </mat-tab>
+    </mat-tab-group>
+
+    <!-- Action Buttons -->
+    <div class="settings-actions">
+        <button mat-button (click)="cancelChanges()">Cancel</button>
+        <button mat-raised-button color="primary" (click)="saveSettings()">Save Changes</button>
+    </div>
+</div>

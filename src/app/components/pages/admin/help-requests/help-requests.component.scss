@@ -31,9 +31,9 @@ $gray-800: #343a40;
             margin: 0 0.5rem;
         }
 
-        span {
-            color: $primary-dark;
-        }
+           span {
+               color: $gray-600;
+           }
     }
 
 
@@ -49,7 +49,8 @@ $gray-800: #343a40;
 
         h1 {
             color: $primary-dark;
-            font-size: 2rem;
+
+            font-size: clamp(1.5rem, 4vw, 2rem);
             margin: 0;
         }
 

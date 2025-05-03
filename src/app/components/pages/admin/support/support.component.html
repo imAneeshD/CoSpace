@@ -1,1 +1,77 @@
-<p>support works!</p>
+<div class="support-dashboard">
+    <nav class="breadcrumb">
+        <i class="fa fa-chevron-right"></i> <span>Support</span>
+    </nav>
+    <header class="dashboard-header">
+        <h1><i class="fa fa-headset"></i> Support</h1>
+        <div class="quick-stats">
+            <div class="stat-card">
+                <i class="fa fa-ticket-alt"></i>
+                <span class="stat-number">{{openTicketsCount}}</span>
+                <span class="stat-label">Open Tickets</span>
+            </div>
+            <div class="stat-card">
+                <i class="fa fa-clock"></i>
+                <span class="stat-number">{{pendingTicketsCount}}</span>
+                <span class="stat-label">Pending</span>
+            </div>
+            <div class="stat-card">
+                <i class="fa fa-check-circle"></i>
+                <span class="stat-number">{{resolvedToday}}</span>
+                <span class="stat-label">Resolved Today</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-content">
+        <section class="tickets-list">
+            <div class="section-header">
+                <h2>Recent Tickets</h2>
+                <div class="filters">
+                    <input type="search" [(ngModel)]="searchQuery" placeholder="Search tickets..." class="search-input">
+                    <select class="filter-select" [(ngModel)]="selectedStatus">
+                        <option value="">All Status</option>
+                        <option *ngFor="let status of statusOptions" [value]="status">{{status}}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="tickets-grid">
+                <div class="ticket-card" *ngFor="let ticket of tickets">
+                    <div class="ticket-priority" [ngClass]="ticket.priority"></div>
+                    <div class="ticket-info">
+                        <h3>#{{ticket.id}} - {{ticket.title}}</h3>
+                        <p>{{ticket.description}}</p>
+                        <div class="ticket-meta">
+                            <span class="status">{{ticket.status}}</span>
+                            <span class="time">{{ticket.createdAt}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <aside class="dashboard-sidebar">
+            <div class="team-status">
+                <h3>Support Team</h3>
+                <div class="team-member" *ngFor="let member of teamMembers">
+                    <div class="avatar" [ngClass]="member.status"></div>
+                    <span class="name">{{member.name}}</span>
+                    <span class="status">{{member.status}}</span>
+                </div>
+            </div>
+
+            <div class="performance-metrics">
+                <h3>Performance</h3>
+                <div class="metric">
+                    <span class="label">Avg. Response Time</span>
+                    <span class="value">{{metrics.avgResponseTime}}</span>
+                </div>
+                <div class="metric">
+                    <span class="label">Satisfaction Rate</span>
+                    <span class="value">{{metrics.satisfactionRate}}%</span>
+                </div>
+            </div>
+        </aside>
+    </div>
+</div>

@@ -1,1 +1,96 @@
-<p>canteen-menu works!</p>
+<div class="canteen-dashboard">
+    <nav class="breadcrumb">
+        <i class="fa fa-chevron-right"></i><span>Canteen Menu</span>
+    </nav>
+    
+    <header class="dashboard-header">
+        <h1><i class="fa fa-utensils"></i> Canteen Menu Management</h1>
+        <div class="quick-stats">
+            <div class="stat-card">
+                <i class="fa fa-hamburger"></i>
+                <span class="stat-number">{{totalItems}}</span>
+                <span class="stat-label">Total Items</span>
+            </div>
+            <div class="stat-card">
+                <i class="fa fa-fire"></i>
+                <span class="stat-number">{{popularItems}}</span>
+                <span class="stat-label">Popular Items</span>
+            </div>
+            <div class="stat-card">
+                <i class="fa fa-chart-line"></i>
+                <span class="stat-number">{{todaysSales}}</span>
+                <span class="stat-label">Today's Sales</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-content">
+        <section class="menu-list">
+            <div class="section-header">
+                <h2>Menu Items</h2>
+                <div class="actions">
+                    <button class="btn-add" (click)="addNewItem()">
+                        <i class="fa fa-plus"></i> Add New Item
+                    </button>
+                    <input type="search" [(ngModel)]="searchQuery" placeholder="Search menu items..." class="search-input">
+                    <select class="filter-select" [(ngModel)]="selectedCategory">
+                        <option value="">All Categories</option>
+                        <option *ngFor="let category of categories" [value]="category">{{category}}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="menu-grid">
+                <div class="menu-card" *ngFor="let item of menuItems">
+                    <img [src]="item.image" [alt]="item.name" class="item-image">
+                    <div class="item-info">
+                        <h3>{{item.name}}</h3>
+                        <p class="price">₹{{item.price}}</p>
+                        <p class="description">{{item.description}}</p>
+                        <div class="item-category">{{item.category}}</div>
+                        <div class="item-details">
+                            <span><i class="fa fa-clock"></i> {{item.prepTime}} mins</span>
+                            <span><i class="fa fa-fire"></i> {{item.calories}} cal</span>
+                            <span class="badge" [ngClass]="item.isVeg ? 'veg' : 'non-veg'">
+                                {{item.isVeg ? 'Veg' : 'Non-Veg'}}
+                            </span>
+                        </div>
+                        <div class="item-availability" [ngClass]="{'available': item.isAvailable}">
+                            {{item.isAvailable ? 'In Stock' : 'Out of Stock'}}
+                        </div>
+                        <div class="actions">
+                            <button class="btn-edit" (click)="editItem(item)">
+                                <i class="fa fa-edit"></i> Edit
+                            </button>
+                            <button class="btn-delete" (click)="deleteItem(item)">
+                                <i class="fa fa-trash"></i> Delete
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <aside class="dashboard-sidebar">
+            <div class="category-stats">
+                <h3>Categories</h3>
+                <div class="category" *ngFor="let cat of categoryStats">
+                    <span class="name">{{cat.name}}</span>
+                    <span class="count">{{cat.count}} items</span>
+                </div>
+            </div>
+
+            <div class="sales-metrics">
+                <h3>Today's Performance</h3>
+                <div class="metric">
+                    <span class="label">Revenue</span>
+                    <span class="value">₹{{metrics.revenue}}</span>
+                </div>
+                <div class="metric">
+                    <span class="label">Orders</span>
+                    <span class="value">{{metrics.orders}}</span>
+                </div>
+            </div>
+        </aside>
+    </div>
+</div>

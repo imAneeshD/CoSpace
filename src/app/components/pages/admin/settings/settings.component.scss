@@ -1,0 +1,276 @@
+// Variables
+$primary-light: #f0f7ff;
+$primary-dark: #1a2b4e;
+$accent: #ff7842;
+$gray-100: #f8f9fa;
+$gray-200: #e9ecef;
+$gray-600: #6c757d;
+$gray-800: #343a40;
+$gray-400: #343a40;
+
+// Media Query Mixins
+@mixin mobile {
+    @media (max-width: 767px) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (min-width: 768px) and (max-width: 1023px) {
+        @content;
+    }
+}
+
+.admin-settings-container {
+    padding: 2rem;
+    padding-top: 4rem;
+    background-color: $primary-light;
+
+    //breadcrumb
+    .breadcrumb {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+        color: $gray-600;
+        font-size: 0.9rem;
+
+        i {
+            font-size: 0.8rem;
+            margin: 0 0.5rem;
+        }
+
+        span {
+            color: $primary-dark;
+        }
+    }
+
+    .settings-header {
+        margin-bottom: 2rem;
+
+        h1 {
+            color: $primary-dark;
+            margin-bottom: 0.5rem;
+            font-size: clamp(1.5rem, 4vw, 2rem);
+        }
+
+        p {
+            color: $gray-600;
+            font-size: clamp(0.9rem, 2vw, 1rem);
+        }
+    }
+
+    .tab-navigation {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 2rem;
+        border-bottom: 1px solid $gray-200;
+        padding-bottom: 1rem;
+        flex-wrap: wrap;
+
+        @include mobile {
+            gap: 0.5rem;
+        }
+
+        .tab-button {
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: $gray-600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            white-space: nowrap;
+
+            @include mobile {
+                padding: 0.6rem 1rem;
+                font-size: 0.9rem;
+                flex: 1 1 calc(50% - 0.5rem);
+                justify-content: center;
+            }
+
+            i {
+                font-size: 1.1rem;
+            }
+
+            &:hover {
+                background: $primary-light;
+                color: $primary-dark;
+            }
+
+            &.active {
+                background: $primary-dark;
+                color: white;
+            }
+        }
+    }
+
+    .settings-section {
+        background: $gray-100;
+        padding: 2rem;
+        border-radius: 10px;
+        margin-bottom: 1.5rem;
+
+        @include mobile {
+            padding: 1rem;
+        }
+
+        h2 {
+            color: $primary-dark;
+            margin-bottom: 1.5rem;
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+
+            label {
+                display: block;
+                margin-bottom: 0.5rem;
+                color: $gray-800;
+                font-weight: 500;
+            }
+
+            .form-control {
+                width: 100%;
+                padding: 0.75rem;
+                border: 1px solid $gray-200;
+                border-radius: 6px;
+                font-size: 1rem;
+
+                &:focus {
+                    outline: none;
+                    border-color: $accent;
+                    box-shadow: 0 0 0 2px rgba($accent, 0.1);
+                }
+            }
+
+            .checkbox-group {
+                display: grid;
+                gap: 0.5rem;
+
+                label {
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                }
+            }
+        }
+
+        .system-info {
+            .info-item {
+                display: flex;
+                justify-content: space-between;
+                padding: 0.75rem 0;
+                border-bottom: 1px solid $gray-200;
+
+                .status-badge {
+                    padding: 0.25rem 0.75rem;
+                    border-radius: 1rem;
+                    font-size: 0.9rem;
+
+                    &.online {
+                        background: #e6fff0;
+                        color: #00a650;
+                    }
+                }
+            }
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+
+            @include mobile {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .btn {
+                padding: 0.8rem 1.5rem;
+                border-radius: 6px;
+                border: none;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                font-weight: 500;
+
+                @include mobile {
+                    width: 100%;
+                }
+
+                &.primary {
+                    background: $accent;
+                    color: white;
+
+                    &:hover {
+                        background: darken($accent, 10%);
+                    }
+                }
+
+                &.warning {
+                    background: #ffd700;
+                    color: $gray-800;
+
+                    &:hover {
+                        background: darken(#ffd700, 10%);
+                    }
+                }
+            }
+        }
+    }
+
+    .settings-actions {
+        display: flex;
+        justify-content: flex-end;
+        gap: 1rem;
+        margin-top: 2rem;
+        padding-top: 1rem;
+        border-top: 1px solid $gray-200;
+
+        @include mobile {
+            flex-direction: column;
+        }
+
+        .btn {
+            padding: 0.8rem 1.5rem;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            min-width: 120px;
+
+            @include mobile {
+                width: 100%;
+            }
+
+            &.primary {
+                background: $accent;
+                color: white;
+
+                &:hover {
+                    background: darken($accent, 10%);
+                }
+            }
+
+            &.secondary {
+                background: $gray-200;
+                color: $gray-800;
+
+                &:hover {
+                    background: darken($gray-200, 10%);
+                }
+            }
+
+            &.warning {
+                background: #ffd700;
+                color: $gray-800;
+
+                &:hover {
+                    background: darken(#ffd700, 10%);
+                }
+            }
+        }
+    }
+}

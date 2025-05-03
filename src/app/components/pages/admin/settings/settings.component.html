@@ -1,1 +1,139 @@
-<p>settings works!</p>
+<div class="admin-settings-container">
+    <nav class="breadcrumb">
+        <i class="fa fa-chevron-right"></i> <span>Settings</span>
+    </nav>
+    <!-- Header -->
+    <div class="settings-header">
+        <h1>Admin Settings Dashboard</h1>
+        <p>Manage your system configurations and preferences</p>
+    </div>
+
+    <!-- Custom Tab Navigation -->
+    <div class="tab-navigation">
+        <div class="tab-button" [class.active]="activeTab === 'general'" (click)="activeTab = 'general'">
+            <i class="fas fa-cog"></i>
+            General
+        </div>
+        <div class="tab-button" [class.active]="activeTab === 'users'" (click)="activeTab = 'users'">
+            <i class="fas fa-users"></i>
+            User Management
+        </div>
+        <div class="tab-button" [class.active]="activeTab === 'security'" (click)="activeTab = 'security'">
+            <i class="fas fa-shield-alt"></i>
+            Security
+        </div>
+        <div class="tab-button" [class.active]="activeTab === 'system'" (click)="activeTab = 'system'">
+            <i class="fas fa-server"></i>
+            System
+        </div>
+    </div>
+
+    <!-- Tab Content -->
+    <div class="tab-content">
+        <!-- General Settings -->
+        <div class="tab-pane" *ngIf="activeTab === 'general'">
+            <div class="settings-section">
+                <h2>System Configuration</h2>
+                <div class="form-group">
+                    <label>Site Name</label>
+                    <input type="text" [(ngModel)]="settings.siteName" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Default Language</label>
+                    <select [(ngModel)]="settings.language" class="form-control">
+                        <option value="en">English</option>
+                        <option value="es">Spanish</option>
+                        <option value="fr">French</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Maintenance Mode</label>
+                    <div class="toggle-switch">
+                        <input type="checkbox" [(ngModel)]="settings.maintenanceMode">
+                        <span class="slider"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- User Management -->
+        <div class="tab-pane" *ngIf="activeTab === 'users'">
+            <div class="settings-section">
+                <h2>User Settings</h2>
+                <div class="form-group">
+                    <label>Default User Role</label>
+                    <select [(ngModel)]="settings.defaultRole" class="form-control">
+                        <option value="user">User</option>
+                        <option value="admin">Admin</option>
+                        <option value="moderator">Moderator</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>User Registration</label>
+                    <div class="toggle-switch">
+                        <input type="checkbox" [(ngModel)]="settings.allowRegistration">
+                        <span class="slider"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Security Settings -->
+        <div class="tab-pane" *ngIf="activeTab === 'security'">
+            <div class="settings-section">
+                <h2>Security Configuration</h2>
+                <div class="form-group">
+                    <label>Two-Factor Authentication</label>
+                    <div class="toggle-switch">
+                        <input type="checkbox" [(ngModel)]="settings.require2FA">
+                        <span class="slider"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Session Timeout (minutes)</label>
+                    <input type="number" [(ngModel)]="settings.sessionTimeout" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Password Policy</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" [(ngModel)]="settings.requireSpecialChar"> Require Special
+                            Characters</label>
+                        <label><input type="checkbox" [(ngModel)]="settings.requireNumbers"> Require Numbers</label>
+                        <label><input type="checkbox" [(ngModel)]="settings.requireUppercase"> Require Uppercase</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- System Settings -->
+        <div class="tab-pane" *ngIf="activeTab === 'system'">
+            <div class="settings-section">
+                <h2>System Status</h2>
+                <div class="system-info">
+                    <div class="info-item">
+                        <span>Server Status:</span>
+                        <span class="status-badge online">Online</span>
+                    </div>
+                    <div class="info-item">
+                        <span>Last Backup:</span>
+                        <span>2023-11-15 14:30</span>
+                    </div>
+                    <div class="info-item">
+                        <span>System Version:</span>
+                        <span>1.2.3</span>
+                    </div>
+                </div>
+                <div class="action-buttons">
+                    <button class="btn primary" (click)="backupSystem()">Backup System</button>
+                    <button class="btn warning" (click)="clearCache()">Clear Cache</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Actions -->
+    <div class="settings-actions">
+        <button class="btn secondary" (click)="resetSettings()">Reset</button>
+        <button class="btn primary" (click)="saveSettings()">Save Changes</button>
+    </div>
+</div>

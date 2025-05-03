@@ -18,10 +18,30 @@ $gray-800: #343a40;
     padding: 2rem;
     padding-top: 4rem;
 
+    //breadcrumb
+    .breadcrumb {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+        color: $gray-600;
+        font-size: 0.9rem;
+
+        i {
+            font-size: 0.8rem;
+            margin: 0 0.5rem;
+        }
+
+        span {
+            color: $primary-dark;
+        }
+    }
+
+
     .dashboard-header {
         .search-input {
             width: 200px !important;
         }
+
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -219,6 +239,7 @@ $gray-800: #343a40;
 
                         &.view {
                             color: $accent;
+
                             &:hover {
                                 background: rgba($accent, 0.1);
                             }
@@ -226,6 +247,7 @@ $gray-800: #343a40;
 
                         &.edit {
                             color: $primary-dark;
+
                             &:hover {
                                 background: rgba($primary-dark, 0.1);
                             }

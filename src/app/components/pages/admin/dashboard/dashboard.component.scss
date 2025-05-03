@@ -12,6 +12,26 @@ $gray-800: #343a40;
     background-color: $primary-light;
     min-height: 100vh;
 
+    //breadcrumb
+    .breadcrumb {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+        color: $gray-600;
+        font-size: 0.9rem;
+
+        i {
+            font-size: 0.8rem;
+            margin: 0 0.5rem;
+        }
+
+        span {
+            color: $primary-dark;
+        }
+    }
+
+
+
     .dashboard-header {
         display: flex;
         flex-direction: column; // Stack elements on mobile

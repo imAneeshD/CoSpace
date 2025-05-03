@@ -1,17 +1,17 @@
-<!-- admin.component.html -->
 <div class="topbar" id="topbar" [ngClass]="{'blur': shouldBlurContent()}">
     <app-topbar></app-topbar>
 </div>
+
 <div class="sidebar" [ngClass]="{'d-none': !isMenuOpen}">
-    <app-sidebar></app-sidebar>
+    <app-sidebar></app-sidebar> <!-- Sidebar component -->
 </div>
 
 <div class="btn-holder">
-    <button id="close-menu" class="sidebar-close" (click)="isMenuOpen = !isMenuOpen">
+    <button id="close-menu" class="sidebar-close" (click)="toggleSidebar()">
         <i class="fas" [ngClass]="{'fa-bars': !isMenuOpen, 'fa-times': isMenuOpen}"></i>
     </button>
 </div>
 
 <div class="main-content" id="main-content" [ngClass]="{'blur': shouldBlurContent()}">
-    <router-outlet></router-outlet>
+    <router-outlet></router-outlet> <!-- Router outlet for dynamic content -->
 </div>

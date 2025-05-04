@@ -1,0 +1,128 @@
+// Variables
+$primary-light: #f0f7ff; // Light blue background
+$primary-dark: #1a2b4e; // Dark blue text
+$accent: #ff7842; // Orange accent
+$gray-100: #f8f9fa;
+$gray-200: #e9ecef;
+$gray-600: #6c757d;
+$gray-800: #343a40;
+
+// Footer
+footer {
+    background-color: $primary-dark;
+    color: white;
+    padding: 80px 20px 30px;
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, $accent, $primary-light);
+    }
+
+    .footer-grid {
+        display: grid;
+        grid-template-columns: 2fr repeat(3, 1fr);
+        gap: 3rem;
+        margin-bottom: 3rem;
+
+        @media (max-width: 768px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (max-width: 480px) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+
+    .footer-column {
+
+        img {
+            width: 100px;
+            margin-bottom: 1rem;
+        }
+
+        h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+
+            &::after {
+                content: '';
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 30px;
+                height: 2px;
+                background-color: $accent;
+            }
+        }
+
+        a {
+            cursor: pointer;
+            display: block;
+            color: $gray-200;
+            text-decoration: none;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+
+            &:hover {
+                color: $accent;
+                transform: translateX(1px);
+            }
+        }
+    }
+
+    .social-links {
+        display: flex;
+        gap: 1rem;
+        margin-top: 2rem;
+
+        a {
+            color: white;
+            font-size: 1.25rem;
+            background: rgba(white, 0.1);
+            width: 40px; // Added fixed width
+            height: 40px; // Added fixed height
+            display: flex; // Added flex display
+            justify-content: center; // Center horizontally
+            align-items: center; // Center vertically
+            border-radius: 50%;
+            transition: all 0.3s ease;
+
+            &:hover {
+                color: $accent;
+                background: rgba(white, 0.2);
+                transform: translateY(-3px);
+            }
+        }
+    }
+
+    .footer-bottom {
+        text-align: center;
+        padding-top: 2rem;
+        margin-top: 2rem;
+        border-top: 1px solid rgba(white, 0.1);
+
+        p {
+            color: $gray-200;
+            font-size: 0.9rem;
+
+            a {
+                color: $accent;
+                text-decoration: none;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}

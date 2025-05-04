@@ -1,0 +1,40 @@
+<!-- Header Section -->
+<header class="header">
+    <div class="container">
+        <div class="header-content">
+            <div class="logo">
+                <img src="../../../../assets/images/logo.png" alt="Cospace Logo">
+            </div>
+            <div class="header-right">
+                <nav class="menu-nav">
+                    <a [routerLink]="['../']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+                    <a [routerLink]="['../about']" routerLinkActive="active">About</a>
+                    <a [routerLink]="['../careers']" routerLinkActive="active">Careers</a>
+                    <a [routerLink]="['../contact']" routerLinkActive="active">Contact</a>
+                    <a [routerLink]="['../privacy']" routerLinkActive="active">Privacy Policy</a>
+                    <a [routerLink]="['../terms']" routerLinkActive="active">Terms & Service</a>
+                    <a [routerLink]="['../security']" routerLinkActive="active">Security</a>
+                </nav>
+                <div class="menu-toggle" (click)="toggleMenu()">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Side Panel -->
+<div class="side-panel" [ngClass]="{ 'show': isMenuOpen }">
+    <div class="close-menu" (click)="toggleMenu()">
+        <i class="fas fa-times"></i>
+    </div>
+    <div class="mobile-menu">
+        <a [routerLink]="['../']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+        <a [routerLink]="['../about']" routerLinkActive="active">About</a>
+        <a [routerLink]="['../careers']" routerLinkActive="active">Careers</a>
+        <a [routerLink]="['../contact']" routerLinkActive="active">Contact</a>
+        <a [routerLink]="['../privacy']" routerLinkActive="active">Privacy Policy</a>
+        <a [routerLink]="['../terms']" routerLinkActive="active">Terms & Service</a>
+        <a [routerLink]="['../security']" routerLinkActive="active">Security</a>
+    </div>
+</div>
